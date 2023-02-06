@@ -1,4 +1,4 @@
-const findTheOldest = require('./findTheOldest')
+const findTheOldest = require('./findTheOldestReduceMethod.js')
 
 describe('findTheOldest', () => {
   test('finds the oldest person!', () => {
@@ -18,10 +18,15 @@ describe('findTheOldest', () => {
         yearOfBirth: 1912,
         yearOfDeath: 1941,
       },
+      {
+        name: "Pippo",
+        yearOfBirth: 1902,
+        yearOfDeath: 2011,
+      },
     ]
-    expect(findTheOldest(people).name).toBe('Ray');
+    expect(findTheOldest(people).name).toBe('Pippo');
   });
-  test.skip('finds the oldest person if someone is still living', () => {
+  test('finds the oldest person if someone is still living', () => {
     const people = [
       {
         name: "Carly",
@@ -40,7 +45,7 @@ describe('findTheOldest', () => {
     ]
     expect(findTheOldest(people).name).toBe('Ray');
   });
-  test.skip('finds the oldest person if the OLDEST is still living', () => {
+  test('finds the oldest person if the OLDEST is still living', () => {
     const people = [
       {
         name: "Carly",
@@ -56,7 +61,11 @@ describe('findTheOldest', () => {
         yearOfBirth: 1912,
         yearOfDeath: 1941,
       },
+      {
+        name: "Ciccio",
+        yearOfBirth: 62,
+      },
     ]
-    expect(findTheOldest(people).name).toBe('Carly');
+    expect(findTheOldest(people).name).toBe('Ciccio');
   });
 });
